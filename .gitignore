@@ -1,0 +1,12 @@
+Vivado/
+.vscode/
+sim/data/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+build/
+dist/
+sim/sim_build/
+Makefile
