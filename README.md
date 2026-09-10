@@ -1,6 +1,11 @@
-*For a complete architectural writeup, visit [my portfolio page](https://patrick96-chu.github.io/featured-projects/nasdaq-itch-order-book.html).*
-
 # FPGA NASDAQ ITCH Parser + Order Book
+
+[![SystemVerilog](https://img.shields.io/badge/RTL-SystemVerilog-blue.svg)]()
+[![Target](https://img.shields.io/badge/Target-Artix_UltraScale%2B-red.svg)]()
+[![Clock](https://img.shields.io/badge/Clock-312.5_MHz-green.svg)]()
+[![Verification](https://img.shields.io/badge/Sim-Cocotb_%2B_Verilator-yellow.svg)]()
+
+*For a complete architectural writeup, visit [my portfolio page](https://patrick96-chu.github.io/featured-projects/nasdaq-itch-order-book.html).*
 
 ## Overview
 
@@ -15,7 +20,7 @@ A SystemVerilog project designing an FPGA design to parse the NASDAQ ITCH 5.0 pr
 | Metric / Parameter | Specification |
 | :--- | :--- |
 | **Target Device** | AMD/Xilinx Artix UltraScale+ (xcau25p-sfvb784-2e) |
-| **Clock Frequency ($F_{\text{max}}$)** | **312.5 MHz** (3.2 ns clock period) |
+| **Clock Frequency ($F_{\text{max}}$)** | **312.5 MHz** (3.2 ns clock period), WNS = 0.000 ns |
 | **Feed Protocols** | NASDAQ ITCH 5.0 (UDP) |
 | **Ingress Bus Format** | 32-bit AXI4-Stream |
 | **Tick-to-Signal Latency** | **6 Clock Cycles (19.2 ns)** |
@@ -36,11 +41,10 @@ In high-frequency trading (HFT), firms must process incoming market data and cal
 - [Known Limitations & Design Tradeoffs](#known-limitations-&-design-tradeoffs)
 
 ## Stack
-
 RTL: SystemVerilog<br>
-Simulation: Verilator, Cocotb, GTKWave<br>
-Timing Verification: Vivado<br>
-Other: Python<br>
+Simulation: Verilator 5.032, Cocotb 2.0.1, GTKWave<br>
+Timing: Vivado 2026.1<br>
+Other: Python 3.14, Pytest<br>
 
 ## System Architecture
 
@@ -103,7 +107,7 @@ The final design met timing constraints:
 ```
 NASDAQ_ITCH_Parser/
 ├── rtl/
-│   ├── include/        # .sv utilities directly part of the design itself
+│   ├── include/        # .sv utilities not directly part of the design itself
 │   ├── module/         # Sub-modules
 │   └── top.sv          # Top-level module
 ├── sim/                # RTL design testing
