@@ -1,6 +1,7 @@
 Vivado/
 .vscode/
-sim/data/
+sim/data/*
+!sim/data/stream_pkt.py
 __pycache__/
 *.pyc
 *.pyo

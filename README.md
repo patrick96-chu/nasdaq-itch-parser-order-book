@@ -37,10 +37,10 @@ In high-frequency trading (HFT), firms must process incoming market data and cal
 
 ## Stack
 
-RTL: SystemVerilog
-Simulation: Verilator, Cocotb, GTKWave
-Timing Verification: Vivado
-Other: Python
+RTL: SystemVerilog<br>
+Simulation: Verilator, Cocotb, GTKWave<br>
+Timing Verification: Vivado<br>
+Other: Python<br>
 
 ## System Architecture
 
@@ -102,19 +102,21 @@ The final design met timing constraints:
 
 NASDAQ_ITCH_Parser/
 ├── rtl/
-│   ├── include/        # .sv utilities directly part of the design itself
-│   ├── module/         # Sub-modules
-│   └── top.sv          # Top-level module
-├── sim/                # RTL design testing
-│   ├── tests/          # Unit and integration test suites
-│   ├── utils/          # Helpers for writing test suites
-│   └── sim_runner.py   # Cocotb runner
-├── src/                # Python reference model
-│   ├── ref_model/      # Reference model modules
-│   ├── utils/          # Helpers for driving inputs to RTL and Python reference model
-├── tests/              # Python model unit and integration test suites and helpers
-└── README.md
+│   ├── include/        # .sv utilities directly part of the design itself<br>
+│   ├── module/         # Sub-modules<br>
+│   └── top.sv          # Top-level module<br>
+├── sim/                # RTL design testing<br>
+│   ├── data/           # Historical ITCH data\* & streamer<br>
+│   ├── tests/          # Unit and integration test suites<br>
+│   ├── utils/          # Helpers for writing test suites<br>
+│   └── sim_runner.py   # Cocotb runner<br>
+├── src/                # Python reference model<br>
+│   ├── ref_model/      # Reference model modules<br>
+│   ├── utils/          # Helpers for driving inputs to RTL and Python reference model<br>
+├── tests/              # Python model unit and integration test suites and helpers<br>
+└── README.md<br>
 
+\*Data omitted due to large size; download from [https://emi.nasdaq.com/ITCH/].
 ## Known Limitations & Design Tradeoffs
 
 ### L3 Order Book Size
